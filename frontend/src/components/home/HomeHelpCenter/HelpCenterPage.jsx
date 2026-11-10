@@ -1,0 +1,117 @@
+"use client";
+
+import { FaQuestionCircle, FaLifeRing, FaTools, FaBookOpen, FaHandsHelping, FaComments } from "react-icons/fa";
+
+export default function HelpCenterPage() {
+  const particles = Array.from({ length: 15 }).map(() => ({
+    left: Math.random() * 100,
+    top: Math.random() * 100,
+    delay: Math.random() * 5,
+    duration: 10 + Math.random() * 20,
+  }));
+
+  const helpTopics = [
+    { title: "FAQs", desc: "Find answers to common questions.", icon: <FaQuestionCircle /> },
+    { title: "Support Tickets", desc: "Submit and track your support requests.", icon: <FaLifeRing /> },
+    { title: "Guides & Tutorials", desc: "Step-by-step tutorials to solve issues.", icon: <FaBookOpen /> },
+    { title: "Tools & Resources", desc: "Download helpful tools and resources.", icon: <FaTools /> },
+    { title: "Community Help", desc: "Get assistance from our user community.", icon: <FaHandsHelping /> },
+    { title: "Live Chat", desc: "Chat with our support team in real time.", icon: <FaComments /> },
+  ];
+
+  return (
+    <main className="relative min-h-screen overflow-hidden text-white bg-linear-to-b from-slate-950 via-slate-900 to-slate-950">
+      {/* ================= Background Animations ================= */}
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        {/* Gradient Orbs */}
+        <div className="absolute top-20 left-10 w-72 h-72 bg-cyan-500/40 rounded-full blur-3xl animate-float-slow"></div>
+        <div className="absolute bottom-20 right-10 w-96 h-96 bg-blue-500/35 rounded-full blur-3xl animate-float-slower"></div>
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-purple-500/30 rounded-full blur-3xl animate-float-reverse"></div>
+
+        {/* Grid Pattern */}
+        <div className="absolute inset-0 bg-grid-pattern opacity-5"></div>
+
+        {/* Floating Elements */}
+        {particles.map((particle, i) => (
+          <div
+            key={i}
+            className="absolute w-2 h-2 bg-cyan-400/30 rounded-full animate-float-random"
+            style={{
+              left: `${particle.left}%`,
+              top: `${particle.top}%`,
+              animationDelay: `${particle.delay}s`,
+              animationDuration: `${particle.duration}s`
+            }}
+          ></div>
+        ))}
+      </div>
+
+      {/* ================= Old Full-screen Animated Background ================= */}
+      <div className="fixed inset-0 -z-10 overflow-hidden">
+        {/* Animated Grid */}
+        <div className="absolute inset-0 opacity-20">
+          <div
+            className="absolute inset-0"
+            style={{
+              backgroundImage: `
+                linear-gradient(rgba(139, 92, 246, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(139, 92, 246, 0.1) 1px, transparent 1px)
+              `,
+              backgroundSize: "50px 50px",
+              animation: "grid-move 20s linear infinite",
+            }}
+          />
+        </div>
+
+        {/* Floating Particles */}
+        <div className="absolute inset-0 pointer-events-none">
+          {particles.map((particle, i) => (
+            <div
+              key={i}
+              className="absolute w-2 h-2 bg-purple-500 rounded-full opacity-20"
+              style={{
+                left: `${particle.left}%`,
+                top: `${particle.top}%`,
+                animation: `float ${particle.duration}s ease-in-out infinite`,
+                animationDelay: `${particle.delay}s`,
+              }}
+            />
+          ))}
+        </div>
+
+        {/* Gradient Orbs */}
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl animate-pulse" />
+        <div
+          className="absolute bottom-0 right-1/4 w-96 h-96 bg-blue-600/20 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: "1s" }}
+        />
+      </div>
+
+      {/* ================= Page Header ================= */}
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-28 pb-16 sm:pt-36 sm:pb-20 lg:pt-40 lg:pb-24">
+        <div className="text-center mb-10 sm:mb-12 lg:mb-16">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold mb-3 sm:mb-4 text-white drop-shadow-lg">
+            Help Center
+          </h1>
+          <p className="max-w-3xl mx-auto text-gray-300 text-base sm:text-lg md:text-xl px-4">
+            Find guides, FAQs, and support options to help you get the most out of our platform.
+          </p>
+        </div>
+
+        {/* ================= Help Topics Grid ================= */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 lg:gap-8 place-items-center">
+          {helpTopics.map((topic, index) => (
+            <div
+              key={index}
+              className="flex flex-col items-center justify-center p-6 rounded-3xl shadow-lg hover:scale-105 transition-transform duration-300 bg-white/5 backdrop-blur-md w-full max-w-xs text-center"
+            >
+              <div className="text-5xl mb-4 text-purple-400">{topic.icon}</div>
+              <h3 className="text-xl font-bold mb-2">{topic.title}</h3>
+              <p className="text-gray-300">{topic.desc}</p>
+            </div>
+          ))}
+        </div>
+      </div>
+    </main>
+  );
+}
