@@ -60,7 +60,7 @@ A modern Next.js application for agency management with authentication, dashboar
    npm run dev
    ```
 
-   Open [http://localhost:3000](http://localhost:3000) in your browser.
+   Open [http://localhost:3002](http://localhost:3002) in your browser.
 
 ## 📖 Documentation
 

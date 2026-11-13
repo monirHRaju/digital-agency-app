@@ -52,7 +52,7 @@ const AboutSection = () => {
     },
   ];
 
-  const showcaseVideoUrl = "https://www.youtube.com/shorts/O3mKsrDlqk8";
+  const showcaseVideoUrl = "https://youtube.com/shorts/czKhzHBGNbQ?feature=share";
 
   const isYouTubeShort =
     showcaseVideoUrl.includes("youtube.com/shorts/") ||

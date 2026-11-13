@@ -11,7 +11,7 @@ import { registerRoutes } from "./routes";
 const app = express();
 
 const allowedOrigins = [
-  "http://localhost:3000",
+  "http://localhost:3002",
   "https://amaarapp.online",
   "https://www.amaarapp.online",
   process.env.FRONTEND_URL,
